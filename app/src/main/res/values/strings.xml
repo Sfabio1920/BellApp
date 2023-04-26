@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">BellApp</string>
+    <string name="associazione">I.I.S. Belluzzi Fioravanti</string>
+    <string name="fragment_home">Home</string>
+    <string name="fragment_podcast">Podcast</string>
+    <string name="fragment_news">News</string>
+    <string name="fragment_utilities">Utilità</string>
+    <string name="fragment_menu">Menu</string>
+    <string name="nome_news">Nome</string>
+    <string name="cognome_news">Cognome</string>
+    <string name="news">News</string>
+    <string name="pulsante_invia">Invia</string>
+</resources>

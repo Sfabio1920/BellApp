@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+            android:id="@+id/home"
+            android:enabled="true"
+            android:icon="@drawable/icon_1"
+            android:title="@string/fragment_home"/>
+    <item
+            android:id="@+id/news"
+            android:enabled="true"
+            android:icon="@drawable/icon_2"
+            android:title="@string/fragment_news"/>
+    <item
+            android:id="@+id/podcast"
+            android:enabled="true"
+            android:icon="@drawable/icon_3"
+            android:title="@string/fragment_podcast"/>
+    <item
+            android:id="@+id/utilities"
+            android:enabled="true"
+            android:icon="@drawable/icon_4"
+            android:title="@string/fragment_utilities"/>
+    <item
+            android:id="@+id/menu"
+            android:enabled="true"
+            android:icon="@drawable/icon_5"
+            android:title="@string/fragment_menu"/>
+</menu>
