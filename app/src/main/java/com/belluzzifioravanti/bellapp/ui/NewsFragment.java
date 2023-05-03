@@ -49,13 +49,13 @@ public class NewsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        nomeNews = getActivity().findViewById(R.id.nomeNews);
-        cognomeNews = getActivity().findViewById(R.id.cognomeNews);
-        textNews = getActivity().findViewById(R.id.textNews);
-        materialButton = getActivity().findViewById(R.id.button_news);
-        nome = getActivity().findViewById(R.id.nome);
-        cognome = getActivity().findViewById(R.id.cognome);
-        news = getActivity().findViewById(R.id.news);
+        nomeNews = requireActivity().findViewById(R.id.nomeNews);
+        cognomeNews = requireActivity().findViewById(R.id.cognomeNews);
+        textNews = requireActivity().findViewById(R.id.textNews);
+        materialButton = requireActivity().findViewById(R.id.button_news);
+        nome = requireActivity().findViewById(R.id.nome);
+        cognome = requireActivity().findViewById(R.id.cognome);
+        news = requireActivity().findViewById(R.id.news);
         button();
         checkInput();
     }

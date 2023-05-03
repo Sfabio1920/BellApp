@@ -12,7 +12,9 @@ import androidx.fragment.app.Fragment;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.belluzzifioravanti.bellapp.R;
 import com.google.android.material.transition.MaterialFadeThrough;
+
 import java.util.Date;
+import java.util.Objects;
 
 public class HomeFragment extends Fragment {
     private MaterialFadeThrough materialFadeThrough = new MaterialFadeThrough();
@@ -35,7 +37,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        calendarView = getActivity().findViewById(R.id.calendar);
+        calendarView = requireActivity().findViewById(R.id.calendar);
         refresh();
     }
 
