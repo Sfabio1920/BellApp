@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.belluzzifioravanti.bellapp.R;
 import com.google.android.material.transition.MaterialFadeThrough;
+import java.util.Date;
 
 public class HomeFragment extends Fragment {
     private MaterialFadeThrough materialFadeThrough = new MaterialFadeThrough();
@@ -21,7 +22,6 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setupCalendar();
         materialFadeThrough.setDuration(500);
         setEnterTransition(materialFadeThrough);
     }
@@ -35,19 +35,15 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        calendarView = getActivity().findViewById(R.id.calendar);
         refresh();
-    }
-
-    public void setupCalendar() {
-        calendarView = new CalendarView(this.getContext());
     }
 
     private void refresh() {
         refreshLayout = requireActivity().findViewById(R.id.swipeRefreshHome);
         refreshLayout.setColorSchemeColors(ResourcesCompat.getColor(getResources(), R.color.primaryColor, null), ResourcesCompat.getColor(getResources(), R.color.secondaryColor, null), ResourcesCompat.getColor(getResources(), R.color.primaryLightColor, null), ResourcesCompat.getColor(getResources(), R.color.secondaryLightColor, null));
         refreshLayout.setOnRefreshListener(() -> {
-            calendarView.setDate(System.currentTimeMillis(),true,true);
-            calendarView.clearAnimation();
+            calendarView.setDate(new Date().getTime());
             refreshLayout.setRefreshing(false);
         });
     }
