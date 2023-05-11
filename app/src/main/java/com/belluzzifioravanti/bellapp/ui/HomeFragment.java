@@ -1,6 +1,7 @@
 package com.belluzzifioravanti.bellapp.ui;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,11 +11,13 @@ import androidx.annotation.Nullable;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import com.android.volley.*;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.belluzzifioravanti.bellapp.R;
 import com.google.android.material.transition.MaterialFadeThrough;
 
 import java.util.Date;
-import java.util.Objects;
 
 public class HomeFragment extends Fragment {
     private MaterialFadeThrough materialFadeThrough = new MaterialFadeThrough();
@@ -39,6 +42,7 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         calendarView = requireActivity().findViewById(R.id.calendar);
         refresh();
+        //requestDates();
     }
 
     private void refresh() {
@@ -49,4 +53,19 @@ public class HomeFragment extends Fragment {
             refreshLayout.setRefreshing(false);
         });
     }
+    /*
+    private void requestDates() {
+        calendarView.setOnDateChangeListener((view, year, month, dayOfMonth) -> {
+            StringRequest stringRequest = new StringRequest(Request.Method.GET, "https://script.google.com/macros/s/AKfycbwkcupWEmtDiBSYdZgBLO-3cS-4pZkkR2ahbYtln-w/dev",
+                    response -> Log.println(Log.ASSERT, "ScriptRequestResponse", response),
+                    error -> {
+                    }) {
+            };
+            RetryPolicy retryPolicy = new DefaultRetryPolicy(5000, 5, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+            stringRequest.setRetryPolicy(retryPolicy);
+            RequestQueue queue = Volley.newRequestQueue(requireContext());
+            queue.add(stringRequest);
+        });
+    }
+     */
 }

@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import com.android.volley.*;
 import com.android.volley.toolbox.StringRequest;
@@ -63,21 +62,15 @@ public class NewsFragment extends Fragment {
     public void button() {
         materialButton.setOnClickListener(i -> {
             StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://script.google.com/macros/s/AKfycby2iUV8BcIIn2t7oC2FtKwwz9XZgKiObh9o42qRmFMJL2JYFF5fI_UaiKSLdbAKw0-QaQ/exec",
-                    new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response) {
-                            nomeNews.clearFocus();
-                            cognomeNews.clearFocus();
-                            textNews.clearFocus();
-                            nome.setText("");
-                            cognome.setText("");
-                            news.setText("");
-                        }
+                    response -> {
+                        nomeNews.clearFocus();
+                        cognomeNews.clearFocus();
+                        textNews.clearFocus();
+                        nome.setText("");
+                        cognome.setText("");
+                        news.setText("");
                     },
-                    new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                        }
+                    error -> {
                     }) {
                 @Override
                 protected Map<String, String> getParams() {
